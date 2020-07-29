@@ -1,0 +1,4 @@
+resolver: lts-14.16
+extra-deps:
+  - hakyll-4.13.0.1
+  - filepath-1.4.2.1
