@@ -1,0 +1,3 @@
+[submodule "spicyorangeco.github.io"]
+	path = spicyorangeco.github.io
+	url = git@github.com:spicyorangeco/spicyorangeco.github.io
