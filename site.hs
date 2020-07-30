@@ -70,7 +70,7 @@ main = hakyllWith spicyConfig $ do
       route   $ setExtension "html"
       compile $ pandocCompiler
         >>= loadAndApplyTemplate "templates/product.html" prodCtx
---        >>= loadAndApplyTemplate "templates/productdefault.html" prodCtx
+        >>= loadAndApplyTemplate "templates/productdefault.html" prodCtx
         >>= relativizeUrls
 
     create ["shop.html"] $ do
@@ -79,8 +79,8 @@ main = hakyllWith spicyConfig $ do
         products <- loadAll "shop/*"
         let productCtx =
               listField "products" prodCtx (return products) `mappend`
-              constField "title" "All Products"
-              
+              constField "title" "All Products"              `mappend`
+              defaultContext
         makeItem ""
           >>= loadAndApplyTemplate "templates/products.html" productCtx
           >>= loadAndApplyTemplate "templates/productdefault.html" productCtx
@@ -131,6 +131,7 @@ prodCtx = mconcat
   , productContextGen "description"
   , productContextGen "price"
   , productContextGen "picture"
+  , defaultContext
   ]
 
 productContextGen :: String -> Context String
