@@ -14,7 +14,7 @@ import           System.Process (system)
 spicyDir = "spicyorangeco.github.io"
 spicyCache = "_cache"
 spicyTmp = spicyCache ++ "/_tmp"
-deploy = "cd " ++ spicyDir ++ " && git add --all && git commit -m \"Deploying pages\" && git push origin HEAD:master -f"
+deploy = "cd " ++ spicyDir ++ " && git add --all && git commit -m \"Deploying pages\" && git push origin HEAD:master"
 
 spicyConfig = Configuration
   { destinationDirectory = spicyDir
@@ -24,7 +24,7 @@ spicyConfig = Configuration
   , ignoreFile = ignoreFile'
   , deployCommand = deploy
   , deploySite = system . deployCommand
-  , inMemoryCache = False
+  , inMemoryCache = True
   , previewHost = "127.0.0.1"
   , previewPort = 8000
   }
